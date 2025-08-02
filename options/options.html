@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';">
+    <title>Pagy Blocker - Einstellungen</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="../icons/icon48.png" alt="Pagy Blocker" class="logo-img">
+                <h1>Pagy Blocker Einstellungen</h1>
+            </div>
+            <div class="version">Version 7.1.0</div>
+        </header>
+
+        <main class="content">
+            <section class="settings-section">
+                <h2>🛡️ Tracking-Schutz</h2>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Tracking-Schutz Level</h3>
+                        <p>Bestimmt, wie aggressiv Tracker blockiert werden</p>
+                    </div>
+                    <select id="protection-level" class="setting-control">
+                        <option value="standard">Standard</option>
+                        <option value="strict">Streng</option>
+                        <option value="custom">Benutzerdefiniert</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Automatische Filter-Updates</h3>
+                        <p>Aktualisiert Filter-Listen automatisch</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="auto-update" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Session-Statistiken</h3>
+                        <p>Zeigt Live-Tracker-Statistiken im Popup</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="show-stats" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h2>⚡ Performance</h2>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Performance-Monitoring</h3>
+                        <p>Überwacht Extension-Performance (für Entwickler)</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="performance-monitoring">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Debug-Logging</h3>
+                        <p>Aktiviert erweiterte Protokollierung</p>
+                    </div>
+                    <select id="log-level" class="setting-control">
+                        <option value="0">Nur Fehler</option>
+                        <option value="1" selected>Warnungen</option>
+                        <option value="2">Informationen</option>
+                        <option value="3">Debug</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h2>📊 Statistiken</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-blocked">---</div>
+                        <div class="stat-label">Gesamt blockierte Tracker</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="active-rules">---</div>
+                        <div class="stat-label">Aktive Filter-Regeln</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="websites-protected">---</div>
+                        <div class="stat-label">Geschützte Websites</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="storage-usage">--- KB</div>
+                        <div class="stat-label">Speicherverbrauch</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h2>🔧 Erweitert</h2>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Whitelist verwalten</h3>
+                        <p>Websites die nie blockiert werden</p>
+                    </div>
+                    <button id="manage-whitelist" class="btn btn-secondary">
+                        Whitelist öffnen
+                    </button>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Filter-Listen importieren</h3>
+                        <p>Eigene Filter-Listen hinzufügen</p>
+                    </div>
+                    <button id="import-filters" class="btn btn-secondary">
+                        Filter importieren
+                    </button>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Einstellungen exportieren</h3>
+                        <p>Backup der aktuellen Konfiguration</p>
+                    </div>
+                    <button id="export-settings" class="btn btn-secondary">
+                        Exportieren
+                    </button>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Alle Daten zurücksetzen</h3>
+                        <p>Löscht alle Einstellungen und Statistiken</p>
+                    </div>
+                    <button id="reset-all" class="btn btn-danger">
+                        Zurücksetzen
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Pagy Blocker. Mit ❤️ entwickelt für bessere Privatsphäre.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/zerox80/pagy-blocker" target="_blank">GitHub</a>
+                    <a href="../DATENSCHUTZ.md" target="_blank">Datenschutz</a>
+                    <a href="../LICENSE" target="_blank">Lizenz</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="options.js"></script>
+</body>
+</html>

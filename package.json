@@ -1,0 +1,39 @@
+{
+    "name": "pagy-blocker",
+    "version": "7.1.0",
+    "description": "High-performance ad blocker using Chrome's declarativeNetRequest API with per-domain controls",
+    "type": "module",
+    "scripts": {
+        "precompile": "node filter_precompiler.js",
+        "build": "npm run precompile && npm run lint",
+        "dev": "npm run precompile && echo 'Development build ready - load extension in chrome://extensions/'",
+        "test": "node test_performance.js",
+        "test:all": "npm run test && npm run analyze-performance",
+        "benchmark": "node -e \"console.time('Total');require('./filter_precompiler.js');console.timeEnd('Total')\"",
+        "analyze-performance": "node performance_monitor.js",
+        "lint": "eslint . --ext .js",
+        "lint:fix": "eslint . --ext .js --fix",
+        "format": "prettier --write \"**/*.{js,json,css,md}\"",
+        "validate": "npm run lint && npm run test",
+        "release": "npm run validate && npm run build && echo 'Release build ready!'"
+    },
+    "sideEffects": false,
+    "keywords": [
+        "ad-blocker",
+        "performance",
+        "wasm",
+        "chrome-extension",
+        "ultra-fast",
+        "optimized"
+    ],
+    "author": "Pagy Team",
+    "license": "MIT",
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "prettier": "^3.2.5"
+    }
+}

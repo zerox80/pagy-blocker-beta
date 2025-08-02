@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>Pagy Blocker</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Pagy Blocker</h1>
+        </div>
+
+        <div class="card">
+            <div class="main-control">
+                <div class="status-container">
+                    <p id="status-text">Status wird geladen...</p>
+                    <p id="domain-text"></p>
+                </div>
+                <div class="toggle-container">
+                    <label class="switch">
+                        <input type="checkbox" id="enable-switch" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="tracking-stats" id="tracking-stats" style="display: none;">
+            <div class="stats-header">
+                <h3>🛡️ Tracker blockiert (diese Session)</h3>
+            </div>
+            <div class="stats-content">
+                <div class="stat-item">
+                    <span class="stat-label">Diese Website:</span>
+                    <span class="stat-value" id="current-site-blocked">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Unterschiedliche Tracker:</span>
+                    <span class="stat-value" id="current-site-trackers">0</span>
+                </div>
+                <div class="stat-item total-stat">
+                    <span class="stat-label">Gesamt (alle Websites):</span>
+                    <span class="stat-value" id="total-session-blocked">0</span>
+                </div>
+            </div>
+            <div class="tracker-list" id="tracker-list"></div>
+        </div>
+
+        <div class="footer">
+            <p>Aktive Filterregeln: <span id="filter-count">...</span></p>
+        </div>
+    </div>
+    <script type="module" src="popup.js"></script>
+</body>
+</html>
